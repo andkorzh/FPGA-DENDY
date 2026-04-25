@@ -9,3 +9,8 @@ Prototype for Cyclone 2
 Video on YouTube
 
 https://www.youtube.com/watch?v=XWy88H4eIGA
+
+Resources used by FPGA
+
+<img width="437" height="296" alt="FPGA_DENDY_RES" src="https://github.com/user-attachments/assets/77ccb09b-f1be-4fef-9fa6-38c08fb7212d" />
+
