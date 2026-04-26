@@ -145,7 +145,7 @@ nIN[1:0]
 wire [7:0]WRAMBUS;
 //WRAM
 //             address, clock,   data,         wren,               q
-WRAM MOD_WRAM( A[10:0], Clk, DBUS[7:0], ~( RnW | nWRAMCS ), WRAMBUS[7:0] );
+SRAM MOD_WRAM( A[10:0], Clk, DBUS[7:0], ~( RnW | nWRAMCS ), WRAMBUS[7:0] );
 // Вывод значений WRAM на шину данных
 assign DBUS[7:0] = ~( ~RnW | nWRAMCS ) ? WRAMBUS[7:0] : 8'hZZ;
 
@@ -190,7 +190,7 @@ PPU_REN
 wire [7:0]VRAMBUS;
 //VRAM
 //                        address,        clock, data,           wren,               q
-VRAM MOD_VRAM( { ~nVRAMA10, ALE_REG[9:0]}, Clk, PAo[7:0], ~( nWR | ~VRAMCS ) , VRAMBUS[7:0] );
+SRAM MOD_VRAM( { ~nVRAMA10, ALE_REG[9:0]}, Clk, PAo[7:0], ~( nWR | ~VRAMCS ) , VRAMBUS[7:0] );
 assign PD_BUS[7:0] = nRD ? PAo[7:0] : 8'hZZ;
 assign PA[13:8]    = PAo[13:8];
 assign PD_DIR = nRD;
