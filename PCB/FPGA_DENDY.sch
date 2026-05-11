@@ -27253,6 +27253,9 @@ Distributor Conrad</description>
 <part name="C41" library="rcl_my" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="0.1uF"/>
 <part name="GND97" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND98" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="U14" library="SN74LVC2G34DBVR" deviceset="SN74LVC2G34DBVR" device=""/>
+<part name="V38" library="supply" deviceset="+3V3" device=""/>
+<part name="GND99" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -28075,15 +28078,15 @@ Distributor Conrad</description>
 <attribute name="NAME" x="58.42" y="-106.68" size="1.778" layer="95"/>
 <attribute name="VALUE" x="71.12" y="-106.68" size="1.778" layer="96"/>
 </instance>
-<instance part="U8" gate="G$1" x="5.08" y="180.34" smashed="yes">
-<attribute name="NAME" x="4.826" y="207.01" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-5.08" y="152.4" size="1.778" layer="96"/>
+<instance part="U8" gate="G$1" x="-15.24" y="182.88" smashed="yes">
+<attribute name="NAME" x="-15.494" y="209.55" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-25.4" y="154.94" size="1.778" layer="96"/>
 </instance>
-<instance part="V7" gate="G$1" x="25.4" y="180.34" smashed="yes" rot="R270">
-<attribute name="VALUE" x="27.35" y="179.575" size="1.778" layer="96"/>
+<instance part="V7" gate="G$1" x="5.08" y="182.88" smashed="yes" rot="R270">
+<attribute name="VALUE" x="7.03" y="182.115" size="1.778" layer="96"/>
 </instance>
-<instance part="GND25" gate="1" x="-12.7" y="180.34" smashed="yes" rot="R270">
-<attribute name="VALUE" x="-15.24" y="182.88" size="1.778" layer="96" rot="R270"/>
+<instance part="GND25" gate="1" x="-33.02" y="182.88" smashed="yes" rot="R270">
+<attribute name="VALUE" x="-35.56" y="185.42" size="1.778" layer="96" rot="R270"/>
 </instance>
 <instance part="V18" gate="1" x="-132.08" y="137.16" smashed="yes">
 <attribute name="VALUE" x="-133.81" y="139.05" size="1.778" layer="96"/>
@@ -28195,35 +28198,35 @@ Distributor Conrad</description>
 <attribute name="VALUE" x="-122.682" y="32.512" size="1.778" layer="96"/>
 <attribute name="NAME" x="-132.08" y="32.512" size="1.778" layer="95"/>
 </instance>
-<instance part="U11" gate="G$1" x="167.64" y="180.34" smashed="yes">
-<attribute name="NAME" x="164.084" y="207.01" size="1.778" layer="95"/>
-<attribute name="VALUE" x="162.56" y="152.4" size="1.778" layer="96"/>
+<instance part="U11" gate="G$1" x="193.04" y="182.88" smashed="yes">
+<attribute name="NAME" x="189.484" y="209.55" size="1.778" layer="95"/>
+<attribute name="VALUE" x="187.96" y="154.94" size="1.778" layer="96"/>
 </instance>
-<instance part="GND6" gate="1" x="149.86" y="180.34" smashed="yes" rot="R270">
-<attribute name="VALUE" x="147.32" y="182.88" size="1.778" layer="96" rot="R270"/>
+<instance part="GND6" gate="1" x="175.26" y="182.88" smashed="yes" rot="R270">
+<attribute name="VALUE" x="172.72" y="185.42" size="1.778" layer="96" rot="R270"/>
 </instance>
-<instance part="V27" gate="G$1" x="187.96" y="180.34" smashed="yes" rot="R270">
-<attribute name="VALUE" x="189.91" y="179.575" size="1.778" layer="96"/>
+<instance part="V27" gate="G$1" x="213.36" y="182.88" smashed="yes" rot="R270">
+<attribute name="VALUE" x="215.31" y="182.115" size="1.778" layer="96"/>
 </instance>
 <instance part="V28" gate="G$1" x="142.24" y="60.96" smashed="yes" rot="R270">
 <attribute name="VALUE" x="144.19" y="60.195" size="1.778" layer="96"/>
 </instance>
-<instance part="R27" gate="G$1" x="134.62" y="193.04" smashed="yes">
-<attribute name="NAME" x="132.588" y="194.7926" size="1.778" layer="95"/>
-<attribute name="VALUE" x="132.588" y="189.484" size="1.778" layer="96"/>
+<instance part="R27" gate="G$1" x="162.56" y="195.58" smashed="yes">
+<attribute name="NAME" x="160.528" y="197.3326" size="1.778" layer="95"/>
+<attribute name="VALUE" x="160.528" y="192.024" size="1.778" layer="96"/>
 </instance>
-<instance part="V30" gate="1" x="127" y="193.04" smashed="yes" rot="R90">
-<attribute name="VALUE" x="125.11" y="193.85" size="1.778" layer="96" rot="R180"/>
+<instance part="V30" gate="1" x="154.94" y="195.58" smashed="yes" rot="R90">
+<attribute name="VALUE" x="153.05" y="196.39" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="U12" gate="G$1" x="76.2" y="180.34" smashed="yes">
-<attribute name="NAME" x="75.184" y="207.01" size="1.778" layer="95"/>
-<attribute name="VALUE" x="66.04" y="152.4" size="1.778" layer="96"/>
+<instance part="U12" gate="G$1" x="45.72" y="182.88" smashed="yes">
+<attribute name="NAME" x="44.704" y="209.55" size="1.778" layer="95"/>
+<attribute name="VALUE" x="35.56" y="154.94" size="1.778" layer="96"/>
 </instance>
-<instance part="GND14" gate="1" x="58.42" y="180.34" smashed="yes" rot="R270">
-<attribute name="VALUE" x="55.88" y="182.88" size="1.778" layer="96" rot="R270"/>
+<instance part="GND14" gate="1" x="27.94" y="182.88" smashed="yes" rot="R270">
+<attribute name="VALUE" x="25.4" y="185.42" size="1.778" layer="96" rot="R270"/>
 </instance>
-<instance part="V29" gate="G$1" x="96.52" y="180.34" smashed="yes" rot="R270">
-<attribute name="VALUE" x="98.47" y="179.575" size="1.778" layer="96"/>
+<instance part="V29" gate="G$1" x="66.04" y="182.88" smashed="yes" rot="R270">
+<attribute name="VALUE" x="67.99" y="182.115" size="1.778" layer="96"/>
 </instance>
 <instance part="JP3" gate="-1" x="180.34" y="-149.86" smashed="yes" rot="R270">
 <attribute name="NAME" x="180.34" y="-148.59" size="1.778" layer="95"/>
@@ -28247,12 +28250,12 @@ Distributor Conrad</description>
 <instance part="V31" gate="G$1" x="142.24" y="-129.54" smashed="yes" rot="R90">
 <attribute name="VALUE" x="140.64" y="-128.605" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="C31" gate="G$1" x="58.42" y="200.66" smashed="yes">
-<attribute name="NAME" x="48.594" y="201.121" size="1.778" layer="95"/>
-<attribute name="VALUE" x="48.414" y="198.621" size="1.778" layer="96"/>
+<instance part="C31" gate="G$1" x="27.94" y="203.2" smashed="yes">
+<attribute name="NAME" x="18.114" y="203.661" size="1.778" layer="95"/>
+<attribute name="VALUE" x="17.934" y="201.161" size="1.778" layer="96"/>
 </instance>
-<instance part="GND63" gate="1" x="58.42" y="203.2" smashed="yes" rot="R180">
-<attribute name="VALUE" x="60.96" y="205.74" size="1.778" layer="96" rot="R180"/>
+<instance part="GND63" gate="1" x="27.94" y="205.74" smashed="yes" rot="R180">
+<attribute name="VALUE" x="30.48" y="208.28" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="VR1" gate="A1" x="68.58" y="-76.2" smashed="yes">
 <attribute name="NAME" x="66.802" y="-67.691" size="1.778" layer="95"/>
@@ -28494,6 +28497,16 @@ Distributor Conrad</description>
 </instance>
 <instance part="GND98" gate="1" x="-93.98" y="134.62" smashed="yes" rot="R270">
 <attribute name="VALUE" x="-94.742" y="132.08" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="U14" gate="G$1" x="114.3" y="182.88" smashed="yes">
+<attribute name="NAME" x="114.046" y="209.55" size="1.778" layer="95"/>
+<attribute name="VALUE" x="104.14" y="154.94" size="1.778" layer="96"/>
+</instance>
+<instance part="V38" gate="G$1" x="134.62" y="182.88" smashed="yes" rot="R270">
+<attribute name="VALUE" x="136.57" y="182.115" size="1.778" layer="96"/>
+</instance>
+<instance part="GND99" gate="1" x="96.52" y="182.88" smashed="yes" rot="R270">
+<attribute name="VALUE" x="93.98" y="185.42" size="1.778" layer="96" rot="R270"/>
 </instance>
 </instances>
 <busses>
@@ -29003,6 +29016,10 @@ Distributor Conrad</description>
 <segment>
 <pinref part="U13" gate="G$1" pin="GND"/>
 <pinref part="GND97" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="GND99" gate="1" pin="GND"/>
+<pinref part="U14" gate="G$1" pin="GND"/>
 </segment>
 </net>
 <net name="TDI" class="0">
@@ -29524,6 +29541,10 @@ Distributor Conrad</description>
 <pinref part="U3" gate="G$1" pin="VCCB@1"/>
 <pinref part="U3" gate="G$1" pin="VCCB@2"/>
 </segment>
+<segment>
+<pinref part="V38" gate="G$1" pin="+3V3"/>
+<pinref part="U14" gate="G$1" pin="VCC"/>
+</segment>
 </net>
 <net name="+1V2" class="0">
 <segment>
@@ -29596,8 +29617,8 @@ Distributor Conrad</description>
 <label x="-200.66" y="-15.24" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="139.7" y1="193.04" x2="152.4" y2="193.04" width="0.1524" layer="91"/>
-<label x="142.24" y="193.04" size="1.778" layer="95"/>
+<wire x1="167.64" y1="195.58" x2="177.8" y2="195.58" width="0.1524" layer="91"/>
+<label x="170.18" y="195.58" size="1.778" layer="95"/>
 <pinref part="R27" gate="G$1" pin="2"/>
 <pinref part="U11" gate="G$1" pin="IN1"/>
 </segment>
@@ -30184,6 +30205,11 @@ Distributor Conrad</description>
 <pinref part="CN1" gate="G$1" pin="R/W"/>
 <label x="-200.66" y="-12.7" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="132.08" y1="170.18" x2="144.78" y2="170.18" width="0.1524" layer="91"/>
+<label x="134.62" y="170.18" size="1.778" layer="95"/>
+<pinref part="U14" gate="G$1" pin="OUT2"/>
+</segment>
 </net>
 <net name="/PRD" class="0">
 <segment>
@@ -30197,11 +30223,16 @@ Distributor Conrad</description>
 <label x="-99.06" y="-129.54" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="/ROMSEL_FPGA" class="0">
+<net name="/ROMSEL" class="0">
 <segment>
 <wire x1="-165.1" y1="-12.7" x2="-152.4" y2="-12.7" width="0.1524" layer="91"/>
 <pinref part="CN1" gate="G$1" pin="/ROMSEL"/>
 <label x="-162.56" y="-12.7" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="132.08" y1="195.58" x2="144.78" y2="195.58" width="0.1524" layer="91"/>
+<label x="134.62" y="195.58" size="1.778" layer="95"/>
+<pinref part="U14" gate="G$1" pin="OUT1"/>
 </segment>
 </net>
 <net name="SND_EXT" class="0">
@@ -30211,8 +30242,8 @@ Distributor Conrad</description>
 <wire x1="-162.56" y1="-17.78" x2="-162.56" y2="-15.24" width="0.1524" layer="91"/>
 <pinref part="CN1" gate="G$1" pin="SNDI"/>
 <wire x1="-162.56" y1="-15.24" x2="-165.1" y2="-15.24" width="0.1524" layer="91"/>
-<label x="-160.02" y="-15.24" size="1.778" layer="95"/>
-<wire x1="-162.56" y1="-15.24" x2="-147.32" y2="-15.24" width="0.1524" layer="91"/>
+<label x="-162.56" y="-15.24" size="1.778" layer="95"/>
+<wire x1="-162.56" y1="-15.24" x2="-152.4" y2="-15.24" width="0.1524" layer="91"/>
 <junction x="-162.56" y="-15.24"/>
 </segment>
 <segment>
@@ -30571,8 +30602,8 @@ Distributor Conrad</description>
 <label x="-162.56" y="-22.86" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="139.7" y1="167.64" x2="152.4" y2="167.64" width="0.1524" layer="91"/>
-<label x="142.24" y="167.64" size="1.778" layer="95"/>
+<wire x1="165.1" y1="170.18" x2="177.8" y2="170.18" width="0.1524" layer="91"/>
+<label x="167.64" y="170.18" size="1.778" layer="95"/>
 <pinref part="U11" gate="G$1" pin="IN2"/>
 </segment>
 </net>
@@ -30583,8 +30614,8 @@ Distributor Conrad</description>
 <label x="-200.66" y="-22.86" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="45.72" y1="167.64" x2="63.5" y2="167.64" width="0.1524" layer="91"/>
-<label x="48.26" y="167.64" size="1.778" layer="95"/>
+<wire x1="15.24" y1="170.18" x2="33.02" y2="170.18" width="0.1524" layer="91"/>
+<label x="17.78" y="170.18" size="1.778" layer="95"/>
 <pinref part="U12" gate="G$1" pin="IN2"/>
 </segment>
 </net>
@@ -31619,8 +31650,8 @@ Distributor Conrad</description>
 <net name="J1D" class="0">
 <segment>
 <pinref part="U8" gate="G$1" pin="OUT1"/>
-<wire x1="22.86" y1="193.04" x2="30.48" y2="193.04" width="0.1524" layer="91"/>
-<label x="25.4" y="193.04" size="1.778" layer="95"/>
+<wire x1="2.54" y1="195.58" x2="10.16" y2="195.58" width="0.1524" layer="91"/>
+<label x="5.08" y="195.58" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="-15.24" y1="68.58" x2="-2.54" y2="68.58" width="0.1524" layer="91"/>
@@ -31631,8 +31662,8 @@ Distributor Conrad</description>
 <net name="J2D" class="0">
 <segment>
 <pinref part="U8" gate="G$1" pin="OUT2"/>
-<wire x1="22.86" y1="167.64" x2="30.48" y2="167.64" width="0.1524" layer="91"/>
-<label x="25.4" y="167.64" size="1.778" layer="95"/>
+<wire x1="2.54" y1="170.18" x2="10.16" y2="170.18" width="0.1524" layer="91"/>
+<label x="5.08" y="170.18" size="1.778" layer="95"/>
 </segment>
 <segment>
 <wire x1="-15.24" y1="66.04" x2="-2.54" y2="66.04" width="0.1524" layer="91"/>
@@ -31643,15 +31674,15 @@ Distributor Conrad</description>
 <net name="JOYDATA1" class="0">
 <segment>
 <pinref part="U8" gate="G$1" pin="IN1"/>
-<wire x1="-10.16" y1="193.04" x2="-22.86" y2="193.04" width="0.1524" layer="91"/>
-<label x="-22.86" y="193.04" size="1.778" layer="95"/>
+<wire x1="-30.48" y1="195.58" x2="-43.18" y2="195.58" width="0.1524" layer="91"/>
+<label x="-43.18" y="195.58" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="JOYDATA2" class="0">
 <segment>
 <pinref part="U8" gate="G$1" pin="IN2"/>
-<wire x1="-10.16" y1="167.64" x2="-22.86" y2="167.64" width="0.1524" layer="91"/>
-<label x="-22.86" y="167.64" size="1.778" layer="95"/>
+<wire x1="-30.48" y1="170.18" x2="-43.18" y2="170.18" width="0.1524" layer="91"/>
+<label x="-43.18" y="170.18" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="PD0_FPGA" class="0">
@@ -31985,6 +32016,11 @@ Distributor Conrad</description>
 <label x="-18.796" y="-15.24" size="1.778" layer="95"/>
 <pinref part="U4" gate="G$1" pin="IO69"/>
 </segment>
+<segment>
+<wire x1="86.36" y1="195.58" x2="99.06" y2="195.58" width="0.1524" layer="91"/>
+<label x="86.36" y="195.58" size="1.778" layer="95"/>
+<pinref part="U14" gate="G$1" pin="IN1"/>
+</segment>
 </net>
 <net name="PALSEL0" class="0">
 <segment>
@@ -32000,8 +32036,8 @@ Distributor Conrad</description>
 <pinref part="U4" gate="G$1" pin="CLK6"/>
 </segment>
 <segment>
-<label x="187.96" y="193.04" size="1.778" layer="95"/>
-<wire x1="185.42" y1="193.04" x2="200.66" y2="193.04" width="0.1524" layer="91"/>
+<label x="213.36" y="195.58" size="1.778" layer="95"/>
+<wire x1="210.82" y1="195.58" x2="228.6" y2="195.58" width="0.1524" layer="91"/>
 <pinref part="U11" gate="G$1" pin="OUT1"/>
 </segment>
 </net>
@@ -32012,15 +32048,15 @@ Distributor Conrad</description>
 <pinref part="U4" gate="G$1" pin="CLK7"/>
 </segment>
 <segment>
-<label x="187.96" y="167.64" size="1.778" layer="95"/>
-<wire x1="185.42" y1="167.64" x2="200.66" y2="167.64" width="0.1524" layer="91"/>
+<label x="213.36" y="170.18" size="1.778" layer="95"/>
+<wire x1="210.82" y1="170.18" x2="228.6" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="U11" gate="G$1" pin="OUT2"/>
 </segment>
 </net>
 <net name="RESET" class="0">
 <segment>
-<wire x1="111.76" y1="193.04" x2="93.98" y2="193.04" width="0.1524" layer="91"/>
-<label x="96.52" y="193.04" size="1.778" layer="95"/>
+<wire x1="78.74" y1="195.58" x2="63.5" y2="195.58" width="0.1524" layer="91"/>
+<label x="66.04" y="195.58" size="1.778" layer="95"/>
 <pinref part="U12" gate="G$1" pin="OUT1"/>
 </segment>
 <segment>
@@ -32046,12 +32082,12 @@ Distributor Conrad</description>
 </net>
 <net name="/RESET" class="0">
 <segment>
-<wire x1="63.5" y1="193.04" x2="58.42" y2="193.04" width="0.1524" layer="91"/>
-<label x="48.26" y="193.04" size="1.778" layer="95"/>
+<wire x1="33.02" y1="195.58" x2="27.94" y2="195.58" width="0.1524" layer="91"/>
+<label x="17.78" y="195.58" size="1.778" layer="95"/>
 <pinref part="U12" gate="G$1" pin="IN1"/>
 <pinref part="C31" gate="G$1" pin="2"/>
-<wire x1="58.42" y1="193.04" x2="45.72" y2="193.04" width="0.1524" layer="91"/>
-<junction x="58.42" y="193.04"/>
+<wire x1="27.94" y1="195.58" x2="15.24" y2="195.58" width="0.1524" layer="91"/>
+<junction x="27.94" y="195.58"/>
 </segment>
 <segment>
 <pinref part="JP3" gate="-1" pin="1"/>
@@ -32062,8 +32098,8 @@ Distributor Conrad</description>
 </net>
 <net name="VA10_FPGA" class="0">
 <segment>
-<wire x1="93.98" y1="167.64" x2="111.76" y2="167.64" width="0.1524" layer="91"/>
-<label x="96.52" y="167.64" size="1.778" layer="95"/>
+<wire x1="63.5" y1="170.18" x2="78.74" y2="170.18" width="0.1524" layer="91"/>
+<label x="66.04" y="170.18" size="1.778" layer="95"/>
 <pinref part="U12" gate="G$1" pin="OUT2"/>
 </segment>
 <segment>
@@ -32266,6 +32302,13 @@ Distributor Conrad</description>
 <net name="+1V4" class="0">
 <segment>
 <wire x1="165.1" y1="104.14" x2="160.02" y2="104.14" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="R/W_FPGA" class="0">
+<segment>
+<wire x1="86.36" y1="170.18" x2="99.06" y2="170.18" width="0.1524" layer="91"/>
+<label x="86.36" y="170.18" size="1.778" layer="95"/>
+<pinref part="U14" gate="G$1" pin="IN2"/>
 </segment>
 </net>
 </nets>
