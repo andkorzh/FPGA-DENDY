@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.6.2">
+<eagle version="9.4.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -29606,14 +29606,14 @@ D = Direct mounting &lt;p&gt;
 </net>
 <net name="ASDO" class="0">
 <segment>
-<wire x1="170.18" y1="2.54" x2="157.48" y2="2.54" width="0.1524" layer="91"/>
-<label x="157.48" y="2.54" size="1.778" layer="95"/>
-<pinref part="U5" gate="G$1" pin="DATA"/>
-</segment>
-<segment>
 <wire x1="-2.54" y1="73.66" x2="-15.24" y2="73.66" width="0.1524" layer="91"/>
 <label x="-10.16" y="73.66" size="1.778" layer="95"/>
 <pinref part="U4" gate="G$1" pin="IO1(ASDO)"/>
+</segment>
+<segment>
+<wire x1="203.2" y1="-2.54" x2="195.58" y2="-2.54" width="0.1524" layer="91"/>
+<label x="195.58" y="-2.54" size="1.778" layer="95"/>
+<pinref part="U5" gate="G$1" pin="ASDI"/>
 </segment>
 </net>
 <net name="/CSO" class="0">
@@ -29628,16 +29628,16 @@ D = Direct mounting &lt;p&gt;
 <pinref part="U4" gate="G$1" pin="IO2(/CSO)"/>
 </segment>
 </net>
-<net name="DATAO" class="0">
-<segment>
-<wire x1="195.58" y1="-2.54" x2="203.2" y2="-2.54" width="0.1524" layer="91"/>
-<label x="195.58" y="-2.54" size="1.778" layer="95"/>
-<pinref part="U5" gate="G$1" pin="ASDI"/>
-</segment>
+<net name="DATA0" class="0">
 <segment>
 <wire x1="132.08" y1="27.94" x2="142.24" y2="27.94" width="0.1524" layer="91"/>
 <label x="134.62" y="27.94" size="1.778" layer="95"/>
 <pinref part="U4" gate="G$1" pin="DATA0"/>
+</segment>
+<segment>
+<wire x1="157.48" y1="2.54" x2="170.18" y2="2.54" width="0.1524" layer="91"/>
+<label x="157.48" y="2.54" size="1.778" layer="95"/>
+<pinref part="U5" gate="G$1" pin="DATA"/>
 </segment>
 </net>
 <net name="+5V" class="0">
