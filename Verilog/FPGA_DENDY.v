@@ -69,7 +69,6 @@ output SYNC             // Composite sync output
 // Module connections
 wire Clk;
 wire Clk2;
-wire PHI2;
 wire [15:0]ADR;
 wire [3:0]SQA, SQB, RND, TRIA;
 wire [6:0]DMC;
@@ -88,7 +87,7 @@ reg [9:0]ALE_REG;
 // Combinatorics
 assign DB_DIR = nIN[0] & nIN[1] & nWRAMCS & nPPU_CE & nR4015 & RnW;
 assign AB[14:0] = ADR[14:0];
-// Порты джойстиков
+// Joystick port
 assign LE      =  OUT[0];
 assign SCK1    = ~nIN[0] ? ~M2 : 1'hZ;
 assign SCK2    = ~nIN[1] ? ~M2 : 1'hZ;
@@ -134,7 +133,7 @@ SRAM WRAM( ADR[10:0], Clk, DBUS[7:0], ~( RnW | nWRAMCS ), WRAMBUS[7:0] );
 // Outputting WRAM values to the data bus
 assign DBUS[7:0] = ~( ~RnW | nWRAMCS ) ? WRAMBUS[7:0] : 8'hZZ;
 
-// Вывод DPCM
+// DPCM Output
 DMC_PWM DMCOut(
 Clk2,
 DMC[6:0],
