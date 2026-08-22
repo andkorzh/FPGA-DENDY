@@ -45,14 +45,14 @@ input nVRAMA10,         // VRAM Mirroring mode
 input VRAMCS,           // VRAM enble (CIRAM_CE)
 // Outputs
 inout [7:0]DBUS,        // Data bus
-output M2_out,          // M2 Cycle
-output RnW_EXT,         // Read/Write
+output M2,              // M2 Cycle
+output RnW,             // Read/Write
 output DB_DIR,          // DATA BUS LEVEL SHIFTER CONTROL
 output reg nROMSEL,     // Cartridge ROM select
 output [14:0]AB,        // Address BUS
 output DPCM_PWM,        // DMC PWM output
 output [5:0]So,         // SQA + SQB + TRIA + RND output
-output LE,              // Write peripheral port $4016
+output LE,              // Write peripheral port $4016 bit [0]
 output SCK1,            // Joy 1 clock
 output SCK2,            // Joy 2 clock
 output nRD,             // VRAM (CHR ROM) Read Strobe
@@ -70,16 +70,11 @@ output SYNC             // Composite sync output
 wire Clk;
 wire Clk2;
 wire PHI2;
-wire M2;
 wire [15:0]ADR;
-wire [3:0]SQA;
-wire [3:0]SQB;
-wire [3:0]RND;
-wire [3:0]TRIA;
+wire [3:0]SQA, SQB, RND, TRIA;
 wire [6:0]DMC;
 wire [1:0]nIN;
 wire [2:0]OUT;
-wire RnW;
 wire nR4015;
 wire PPU_INT;
 wire [13:0]PAo;
@@ -92,8 +87,6 @@ reg nWRAMCS, nPPU_CE;
 reg [9:0]ALE_REG;
 // Combinatorics
 assign DB_DIR = nIN[0] & nIN[1] & nWRAMCS & nPPU_CE & nR4015 & RnW;
-assign M2_out = M2;
-assign RnW_EXT = RnW;
 assign AB[14:0] = ADR[14:0];
 // Порты джойстиков
 assign LE      =  OUT[0];
@@ -122,7 +115,6 @@ DBUS[7:0],
 DBUS[7:0],
 ADR[15:0],
 RnW,
-PHI2,
 M2,
 SQA[3:0],
 SQB[3:0],

@@ -45,7 +45,6 @@ input [7:0]Di,        // CPU Data bus IN
 output [7:0]Do,       // CPU Data bus OUT
 output [15:0]ADR,     // Address Bus
 output RnW,           // External pin Read/Write
-output PHI2,          //
 output M2,            // CPU phase M2 (external pin)
 output [3:0]SQA,      // Square Channel A Output
 output [3:0]SQB,      // Square Channel B Output
@@ -60,6 +59,7 @@ output nR4015
 // Module connections
 wire PHI0;
 wire PHI1;
+wire PHI2;
 //wire PHI2;
 wire ACLK1;
 wire nACLK2;
