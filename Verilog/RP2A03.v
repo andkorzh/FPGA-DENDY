@@ -45,6 +45,7 @@ input [7:0]Di,        // CPU Data bus IN
 output [7:0]Do,       // CPU Data bus OUT
 output [15:0]ADR,     // Address Bus
 output RnW,           // External pin Read/Write
+output PHI2,          //
 output M2,            // CPU phase M2 (external pin)
 output [3:0]SQA,      // Square Channel A Output
 output [3:0]SQB,      // Square Channel B Output
@@ -53,12 +54,13 @@ output [3:0]TRIA,     // Triangular channel output
 output [6:0]DMC,      // Delta Modulation Channel Output
 output [5:0]SOUT,     // Channel sum output SQA + SQB + RND + TRIA
 output reg [2:0]OUT,  // Peripheral port output
-output [1:0]nIN       // Peripheral port output
+output [1:0]nIN,      // Peripheral port output
+output nR4015
 );
 // Module connections
 wire PHI0;
 wire PHI1;
-wire PHI2;
+//wire PHI2;
 wire ACLK1;
 wire nACLK2;
 wire Reset;
@@ -86,7 +88,7 @@ wire W4014;
 wire W4015;
 wire W4016;
 wire W4017;
-wire nR4015;
+//wire nR4015;
 wire nR4016;
 wire nR4017;
 wire nLFO1;
@@ -119,7 +121,7 @@ assign Do[7:0] = SPR_PPU ? SPRBUF[7:0] : 8'hZZ;
 assign Reset = ~nRES;
 assign nIN[1:0]  = { nR4017, nR4016 };
 assign DBIN[7:0] = ~nR4015 ? { R4015DB[7:6], Di[5], R4015DB[4:0] } : Di[7:0]; // Read register R4015
-assign SOUT[5:0] = SQA[3:0] + SQB[3:0] + RND[3:0] + TRIA[3:0];
+assign SOUT[5:0] = (SQA[3:0] + SQB[3:0]) + (RND[3:0] + TRIA[3:0]);
 // Logics
 always @(posedge Clk) begin
          if ( PHI2 )   SPRBUF[7:0] <= Di[7:0];
@@ -131,7 +133,7 @@ always @(posedge Clk) begin
 CKDIV MOD_CKDIV(
 Clk,
 Reset,
-PAL,
+PAL | DENDY,
 DENDY,
 PHI2,
 ACLK1,
@@ -158,24 +160,6 @@ CPU_A[15:0],
 SYNC                   // NC
 );
 
-/*
-SHEM_6502 SHEM_6502(
-.Clk (Clk),
-.PHI0 (PHI0),
-.RDY  (RDY),
-.DIN (DBIN),
-.SO  (1'b1),
-.nRES (nRES), 
-.nNMI (nNMI),
-.nIRQ  (~( INT | IRQ_EXT )),
-.PHI1 (PHI1),
-.PHI2 (PHI2),
-.RW (RW),
-.SYNC (SYNC),
-.A (CPU_A),
-.DOUT (Do)
-);
-*/
 REG_SEL MOD_REG_SEL(
 PHI1,
 RW,
@@ -430,12 +414,11 @@ reg DIVM2, DIV0n, SR_FF;
 reg DET;
 // Combinatorics
 wire LOCK;
-assign LOCK   = DIV[1] | ~DIV[0];
-assign PHI0   = PAL & DENDY & SR_FF ? ~DIV0n : ~DIV[0];
+assign LOCK   = DIV[1] | PHI0;
+assign PHI0   = DENDY & SR_FF ? ~DIV0n : ~DIV[0];
 assign ACLK1  = ~( DIVACLK[1] | PHI2 );
 assign nACLK2 = ~( Reset | DIVACLK[1] ) | PHI2;
 assign M2     = PHI2 | ~DIVM2;
-//assign M2     = PHI2;
 // Logics
 always @(posedge Clk) begin
        DET      <= PHI0;
@@ -663,10 +646,10 @@ wire DO_SWEEP;
 assign DO_SWEEP = ~( ~SCO | NOSQx | nLFO2 | ~( | SR[2:0] ) | ~SWDIS | ~( | F[10:2] ) | ( ~DEC & ADDCARRY[10] ));  // Checking the conditions for SWEEP mode activation
 //Duty control
 wire [3:0]DUTY;
-assign DUTY[0] =   DUCNT[0] & DUCNT[1] & DUCNT[2];
-assign DUTY[1] =   DUCNT[1] & DUCNT[2] ;
-assign DUTY[2] =   DUCNT[2] ;
-assign DUTY[3] = ~(DUCNT[1] & DUCNT[2]);
+assign DUTY[0] = ~( ~DUCNT[0] | ~( DUCNT[1] & DUCNT[2] ));
+assign DUTY[1] =     DUCNT[1] &    DUCNT[2] ;
+assign DUTY[2] =     DUCNT[2];
+assign DUTY[3] = ~(  DUCNT[1] &    DUCNT[2] );
 wire DUTY_MUX;
 assign DUTY_MUX = ( DUTY[0] & ~DT[0] & ~DT[1] )|( DUTY[1] & DT[0] & ~DT[1] )|( DUTY[2] & ~DT[0] & DT[1] )|( DUTY[3] & DT[0] & DT[1] );
 // Managing frequency and period counters SWEEP
@@ -754,7 +737,7 @@ assign TRI_n_LC = ~TRILC;
 // Logics
 always @(posedge Clk) begin
           if ( ~( nLFO1 | TRILC | ~RELOAD )) RELOAD_FF <= 1'b0;
-     else if ( W400B )                       RELOAD_FF <= 1'b1;
+     else if ( W400B ) RELOAD_FF <= 1'b1;
           if ( PHI1  ) FCOLATCH  <= TFCout[10];
           if ( W400A ) FR[7:0]   <= DB[7:0];
           if ( W400B ) FR[10:8]  <= DB[2:0];
@@ -814,7 +797,7 @@ SHIFT_REG RAND_LFSR[14:0] (Clk, {RSOUT[13:0], RLFSR_IN}, NFLOAD, ACLK1, 1'b0,   
 wire [10:0]NNF;
 NOISE_TABLE MOD_NOISE_TABLE ( { PAL, F[3:0] }, Clk, NNF[10:0] );
 //Internal module ENVELOPE_GEN
-ENVELOPE_GEN MOD_ENVELOPE_GEN( Clk, ACLK1, Reset, DB[7:0], W400C, NORND | RSOUT[14], W400F, nLFO1, RND_n_LC, RND[3:0] );
+ENVELOPE_GEN MOD_ENVELOPE_GEN( Clk, ACLK1, Reset, DB[7:0], W400C, ( NORND | RSOUT[14] ), W400F, nLFO1, RND_n_LC, RND[3:0] );
 // Logics
 always @(posedge Clk) begin
        if ( Reset ) {RMODE, F[3:0]} <= 5'h0 ;
@@ -946,10 +929,11 @@ always @(posedge Clk) begin
        if ( W4013 ) DMC_LEN[7:0] <= DB[7:0];
        if ( PCM )    SAMPLE[7:0] <= DB[7:0];
        if ( BSTEP | BLOAD | Reset ) SHIFT_REG[7:0] <= ( Reset ? 8'h00 : BLOAD ? SAMPLE[7:0] : { 1'b0, SHIFT_REG1[6:0] });
+       if (PHI1) DMC_PCM_LATCH    <= ~DMC_PCM_FF;
        if ( ACLK1 ) begin
        EN_LATCH[0]      <=  DMC_EN;
        EN_LATCH[2]      <= ~EN_LATCH[1];
-       DMC_PCM_LATCH    <= ~DMC_PCM_FF;
+     //DMC_PCM_LATCH    <= ~DMC_PCM_FF;
        DMC_STOP_LATCH   <=  DMC_STOP_FF;
        DMC_DMSTEP_LATCH <= ~DMC_STEP_FF;
        RUNDMC           <=  RUN_LATCH;
@@ -1017,7 +1001,7 @@ assign ADR[15:0] = ~nDMC_AB ? {1'b1, DMC_A[14:0]} : SPR_PPU ? 16'h2004 : SPR_CPU
 always @(posedge Clk) begin
           if (   ACLK1 ) DIR_TOGGLE_FF <= 1'b1;
      else if ( ~nACLK2 ) DIR_TOGGLE_FF <= 1'b0;
-          if (( SPRE & SPRS ) | Reset )      STOP_DMA_FF <= 1'b1;
+          if (( SPRE & SPRS) | Reset )       STOP_DMA_FF <= 1'b1;
      else if ( ~( DO_SPR | ~( ~PHI1 & RW ))) STOP_DMA_FF <= 1'b0;
           if ( NO_SPR | Reset ) START_DMA_FF <= 1'b0;
      else if ( W4014 )          START_DMA_FF <= 1'b1;
@@ -1115,7 +1099,7 @@ assign V[3:0] = ~( {4{ CH_IN }}  | ~( ENVDIS ? VOL[3:0] : ENV[3:0] ));
 // Logics
 always @(posedge Clk) begin
        if ( ~( nLFO1 | ~RELOAD_LATCH )) ENV_RELOAD_FF <= 1'b0;
-  else if ( W400xx )                    ENV_RELOAD_FF <= 1'b1;
+  else if ( W400xx ) ENV_RELOAD_FF <= 1'b1;
        if ( ACLK1 ) begin
        ECO_LATCH    <= ENCout[3] & ~ENV_RELOAD_FF;
        RELOAD_LATCH <= ENV_RELOAD_FF;
@@ -1151,7 +1135,7 @@ always @(posedge Clk or posedge Reset) begin
        if (Reset) CNT <= 1'b0;
   else if (LOAD)  CNT <= DATA;
   else if (STEP)  CNT <= CNT1;
-                                       end
+                      end
 always @(posedge Clk) begin
        if ( F2 ) CNT1 <= CNT ^ C_IN;
                       end

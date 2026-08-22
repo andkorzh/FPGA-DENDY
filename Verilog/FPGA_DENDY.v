@@ -13,7 +13,7 @@
  *                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *                GNU General Public License for more details.
  *
- *                                       FPGA  DENDY
+ *                                FPGA  DENDY (Cyclone II)
  *
  *   This design is inspired by Wiki BREAKNES. I tried to replicate the design of the real
  * NMOS processor MOS 6502 as much as possible. The Logsim 6502 model was taken as the basis
@@ -31,44 +31,45 @@
 */
 
 module FPGA_DENDY(
-// Такты
-input N_CLK,           //
-input P_CLK,           //
-// Входы
-input MODE_IN,         //
-input DENDY_IN,        //
-input RES,             //
-input IRQ,             //
-input J1D,             //
-input J2D,             //
-input nVRAMA10,        //
-input VRAMCS,          //
-// Выходы
-inout [7:0]DBUS,       //
-output M2_out,         //
-output RnW_EXT,        //
-output DB_DIR,         //
-output nROMSEL,        //
-output [14:0]A,        //
-output DPCM_PWM,       //
-output [5:0]So,        //
-output LE,             //
-output SCK1,           //
-output SCK2,           //
-output reg nRD_EXT,    //
-output reg nWR_EXT,    //
-output ALE,            //
-output PD_DIR,         //
-inout  [7:0]PD_BUS,    //
-output [13:8]PA,       //
-output [17:0]RGB,      //
-output [2:0]EMPH,      //
-output SYNC            //
+// Clocks
+input N_CLK,            // Clock 14.318 MHz for NTSC
+input P_CLK,            // Clock 17.734 MHz for PAL (DENDY)
+// Inputs
+input MODE_IN,          // PAL mode
+input DENDY_IN,         // DENDY mode
+input RES,              // Reset
+input IRQ,              // Interrupt request input
+input J1D,              // Joy 1 data
+input J2D,              // Joy 2 data
+input nVRAMA10,         // VRAM Mirroring mode
+input VRAMCS,           // VRAM enble (CIRAM_CE)
+// Outputs
+inout [7:0]DBUS,        // Data bus
+output M2_out,          // M2 Cycle
+output RnW_EXT,         // Read/Write
+output DB_DIR,          // DATA BUS LEVEL SHIFTER CONTROL
+output reg nROMSEL,     // Cartridge ROM select
+output [14:0]AB,        // Address BUS
+output DPCM_PWM,        // DMC PWM output
+output [5:0]So,         // SQA + SQB + TRIA + RND output
+output LE,              // Write peripheral port $4016
+output SCK1,            // Joy 1 clock
+output SCK2,            // Joy 2 clock
+output nRD,             // VRAM (CHR ROM) Read Strobe
+output nWR,             // VRAM          Write Strobe
+output ALE,             // ALE VRAM Address Low Byte Latch Strobe Output
+output PD_DIR,          // PD BUS LEVEL SHIFTER CONTROL
+inout  [7:0]PD_BUS,     // PPU Graphics Data Bus Input
+output [13:8]PA,        // WRAM (CHR ROM) Address
+output [17:0]RGB,       // RGB output R6 + G6 + B6
+output [2:0]EMPH,       // EMPHASIS R G B
+output SYNC             // Composite sync output
 );
 
-// Связи модулей
+// Module connections
 wire Clk;
 wire Clk2;
+wire PHI2;
 wire M2;
 wire [15:0]ADR;
 wire [3:0]SQA;
@@ -79,47 +80,37 @@ wire [6:0]DMC;
 wire [1:0]nIN;
 wire [2:0]OUT;
 wire RnW;
-
+wire nR4015;
 wire PPU_INT;
-wire nRD;
-wire nWR;
-wire PPU_REN;
 wire [13:0]PAo;
 wire HSYNC;
 wire VSYNC;
 wire SUBCLK;
 
-// Переменные
+// Variables
+reg nWRAMCS, nPPU_CE;
 reg [9:0]ALE_REG;
-
-// Комбинаторика
-assign A[14:0] = ADR[14:0];
-assign DB_DIR = nIN[0] & nIN[1] & nWRAMCS & ~PPU_REN & RnW;
-assign RnW_EXT = RnW;
+// Combinatorics
+assign DB_DIR = nIN[0] & nIN[1] & nWRAMCS & nPPU_CE & nR4015 & RnW;
 assign M2_out = M2;
-// Декодер адреса
-wire nWRAMCS, nPPU_CE;
-assign nROMSEL = ~( M2 &  ADR[15] );
-assign nWRAMCS =   ~M2 |  ADR[13] | ADR[14] | ADR[15];
-assign nPPU_CE =   ~M2 | ~ADR[13] | ADR[14] | ADR[15];
+assign RnW_EXT = RnW;
+assign AB[14:0] = ADR[14:0];
 // Порты джойстиков
-assign LE   = OUT[0];
+assign LE      =  OUT[0];
 assign SCK1    = ~nIN[0] ? ~M2 : 1'hZ;
 assign SCK2    = ~nIN[1] ? ~M2 : 1'hZ;
 assign DBUS[0] = ~nIN[0] ? J1D : 1'hZ;
 assign DBUS[0] = ~nIN[1] ? J2D : 1'hZ;
 
-wire PAL;
-assign PAL =  ~MODE_IN | ~DENDY_IN;
-
+// PLL
 PLL MOD_PLL(
-PAL,
+ ~MODE_IN | ~DENDY_IN,
 N_CLK,
 P_CLK,
 Clk,
 Clk2
 );
-
+// APU
 RP2A03 APU(
 Clk2,
 ~MODE_IN,
@@ -131,6 +122,7 @@ DBUS[7:0],
 DBUS[7:0],
 ADR[15:0],
 RnW,
+PHI2,
 M2,
 SQA[3:0],
 SQB[3:0],
@@ -139,14 +131,15 @@ TRIA[3:0],
 DMC[6:0],
 So[5:0],
 OUT[2:0],
-nIN[1:0]
+nIN[1:0],
+nR4015
 );
 
 wire [7:0]WRAMBUS;
 //WRAM
-//             address, clock,   data,         wren,               q
-SRAM MOD_WRAM( A[10:0], Clk, DBUS[7:0], ~( RnW | nWRAMCS ), WRAMBUS[7:0] );
-// Вывод значений WRAM на шину данных
+//         address, clock,  data,           wren,             q
+SRAM WRAM( ADR[10:0], Clk, DBUS[7:0], ~( RnW | nWRAMCS ), WRAMBUS[7:0] );
+// Outputting WRAM values to the data bus
 assign DBUS[7:0] = ~( ~RnW | nWRAMCS ) ? WRAMBUS[7:0] : 8'hZZ;
 
 // Вывод DPCM
@@ -157,11 +150,11 @@ DPCM_PWM
 );
 
 
-
+// PPU
 RP2C02_LITE PPU(
 Clk,
 Clk2,
-PAL,
+~MODE_IN,
 ~DENDY_IN,
 1'b1,       // ODD_EN
 1'b1,       // nRES
@@ -182,24 +175,23 @@ nRD,
 SYNC,
 HSYNC,
 VSYNC,
-SUBCLK,
-PPU_REN
+SUBCLK
 );
-
 
 wire [7:0]VRAMBUS;
 //VRAM
-//                        address,        clock, data,           wren,               q
-SRAM MOD_VRAM( { ~nVRAMA10, ALE_REG[9:0]}, Clk, PAo[7:0], ~( nWR | ~VRAMCS ) , VRAMBUS[7:0] );
+//                    address,        clock,  data,           wren,               q
+SRAM VRAM({ ~nVRAMA10, ALE_REG[9:0]}, Clk,  PAo[7:0], ~( nWR | ~VRAMCS ) , VRAMBUS[7:0] );
 assign PD_BUS[7:0] = nRD ? PAo[7:0] : 8'hZZ;
 assign PA[13:8]    = PAo[13:8];
 assign PD_DIR = nRD;
 
-
 always @(posedge Clk)begin
+                // Address decoder
+                nROMSEL <= ~( M2 &  ADR[15] );
+                nWRAMCS <=   ~M2 |  ADR[13] | ADR[14] | ADR[15];
+                nPPU_CE <=   ~M2 | ~ADR[13] | ADR[14] | ADR[15];
+                // ALE LATCH
                 if (ALE) ALE_REG[9:0] <= PAo[9:0];
-
-                nRD_EXT <= nRD;
-                nWR_EXT <= nWR;
                       end
 endmodule

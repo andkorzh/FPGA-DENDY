@@ -134,7 +134,7 @@ reg [7:0]X_REG;                              // register X
 reg [7:0]Y_REG;                              // register Y
 reg [7:0]S_REG_LATCH1;                       // Stack pointer input latch
 reg [7:0]S_REG;                              // Stack pointer
-reg [3:0]PHI2_DELAY;
+reg [2:0]PHI2_DELAY;
 // Combinatorics
 assign PHI1  = ~PHI0;
 assign PHI2  =  PHI0;
@@ -146,11 +146,11 @@ assign DL[7:0] = DL_LATCH[7:0] & {8{ PHI1 }};
 assign SYNC = T1;
 assign RW = ~WRPHI1;
 wire OE;
-assign OE = ~RW & PHI2_DELAY[0];
-assign DOUT[7:0] = OE ? DOR_LATCH[7:0] : 8'hZZ;  // Data bus output control   ~( RW | ~( PHI2 | PHI2_DELAY[2]));
+assign OE = ~( RW | ~( PHI2 | PHI2_DELAY[2]));
+assign DOUT[7:0] = OE ? DOR_LATCH[7:0] : 8'hZZ;  // Data bus output control ~( RW | ~( PHI2 | PHI2_DELAY[2]));
 // Logics
 always @(posedge Clk) begin
-       PHI2_DELAY[3:0] <= { PHI2_DELAY[2:0], PHI2 };
+       PHI2_DELAY[2:0] <= { PHI2_DELAY[1:0], PHI2 };
        if (PHI1) begin
        nIRQP    <= nIRQPR1;
        RESPR2   <= RESPR1;
@@ -158,12 +158,12 @@ always @(posedge Clk) begin
        DOR_LATCH[7:0]  <= DB[7:0];
                  end
        if (PHI2) begin
-       nNMIP          <= nNMI;
-       nIRQPR1        <= nIRQ;
-       RESPR1         <= nRES;
-       nPRDYR1        <= RDY;
-       DL_LATCH[7:0]  <= DIN[7:0];
-       S_REG[7:0]     <= S_REG_LATCH1[7:0];
+       nNMIP         <= nNMI;
+       nIRQPR1       <= nIRQ;
+       RESPR1        <= nRES;
+       nPRDYR1       <= RDY;
+       DL_LATCH[7:0] <= DIN[7:0];
+       S_REG[7:0]    <= S_REG_LATCH1[7:0];
                  end
        if ( SB_S | ( S_S & S_SB )) S_REG_LATCH1[7:0] <= SB[7:0];  // BB Hack
        if ( ADL_ABL & PHI1 ) ABL_LATCH[7:0] <= ADL[7:0];
