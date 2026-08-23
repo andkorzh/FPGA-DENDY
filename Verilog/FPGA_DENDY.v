@@ -83,7 +83,7 @@ wire SUBCLK;
 
 // Variables
 reg nWRAMCS, nPPU_CE;
-reg [9:0]ALE_REG;
+reg [7:0]ALE_REG;
 // Combinatorics
 assign DB_DIR = nIN[0] & nIN[1] & nWRAMCS & nPPU_CE & nR4015 & RnW;
 assign AB[14:0] = ADR[14:0];
@@ -172,7 +172,7 @@ SUBCLK
 wire [7:0]VRAMBUS;
 //VRAM
 //                    address,        clock,  data,           wren,               q
-SRAM VRAM({ ~nVRAMA10, ALE_REG[9:0]}, Clk,  PAo[7:0], ~( nWR | ~VRAMCS ) , VRAMBUS[7:0] );
+SRAM VRAM({ ~nVRAMA10, PAo[9:8], ALE_REG[7:0]}, Clk,  PAo[7:0], ~( nWR | ~VRAMCS ) , VRAMBUS[7:0] );
 assign PD_BUS[7:0] = nRD ? PAo[7:0] : 8'hZZ;
 assign PA[13:8]    = PAo[13:8];
 assign PD_DIR = nRD;
@@ -183,6 +183,6 @@ always @(posedge Clk)begin
                 nWRAMCS <=   ~M2 |  ADR[13] | ADR[14] | ADR[15];
                 nPPU_CE <=   ~M2 | ~ADR[13] | ADR[14] | ADR[15];
                 // ALE LATCH
-                if (ALE) ALE_REG[9:0] <= PAo[9:0];
+                if (ALE) ALE_REG[7:0] <= PAo[7:0];
                       end
 endmodule
