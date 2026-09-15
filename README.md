@@ -26,3 +26,8 @@ Version on FPGA Lattiсe LCMXO2-4000HC
 Video on YouTube  
 
 https://www.youtube.com/shorts/M_W1QgEvRp8
+
+Resources used by FPGA
+
+<img width="462" height="505" alt="Lattice res" src="https://github.com/user-attachments/assets/5bae3b0b-98fc-4ae7-936c-aea768e04e13" />
+
