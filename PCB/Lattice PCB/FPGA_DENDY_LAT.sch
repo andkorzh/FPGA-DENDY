@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.4.2">
+<eagle version="9.6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -27438,10 +27438,10 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <part name="GND59" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND60" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND61" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="Q1" library="crystal-geyer_V1_0" library_urn="urn:adsk.eagle:library:203" deviceset="KXO-PXO/XO-V" device="97" package3d_urn="urn:adsk.eagle:package:11945/1" value="14.318 MHz"/>
+<part name="XO1" library="crystal-geyer_V1_0" library_urn="urn:adsk.eagle:library:203" deviceset="KXO-PXO/XO-V" device="97" package3d_urn="urn:adsk.eagle:package:11945/1" value="14.318 MHz"/>
 <part name="GND66" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND67" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="Q2" library="crystal-geyer_V1_0" library_urn="urn:adsk.eagle:library:203" deviceset="KXO-PXO/XO-V" device="95" package3d_urn="urn:adsk.eagle:package:11943/1" value="17.734 MHz"/>
+<part name="XO2" library="crystal-geyer_V1_0" library_urn="urn:adsk.eagle:library:203" deviceset="KXO-PXO/XO-V" device="95" package3d_urn="urn:adsk.eagle:package:11943/1" value="17.734 MHz"/>
 <part name="GND27" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U3" library="SnapEDA-Library" deviceset="SN74LVC8T245" device=""/>
 <part name="C34" library="rcl_my" deviceset="CPOL-EU" device="153CLV-0505" package3d_urn="urn:adsk.eagle:package:23402/2" value="100uF"/>
@@ -27798,9 +27798,9 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <instance part="GND61" gate="1" x="-104.14" y="76.2" smashed="yes" rot="R270">
 <attribute name="VALUE" x="-106.68" y="78.74" size="1.778" layer="96" rot="R270"/>
 </instance>
-<instance part="Q1" gate="G$1" x="27.94" y="-167.64" smashed="yes">
-<attribute name="NAME" x="26.67" y="-158.623" size="1.778" layer="95"/>
-<attribute name="VALUE" x="22.86" y="-177.8" size="1.778" layer="96"/>
+<instance part="XO1" gate="G$1" x="27.94" y="-167.64" smashed="yes">
+<attribute name="NAME" x="25.146" y="-156.083" size="1.778" layer="95"/>
+<attribute name="VALUE" x="21.336" y="-159.004" size="1.778" layer="96"/>
 </instance>
 <instance part="GND66" gate="1" x="10.16" y="-175.26" smashed="yes">
 <attribute name="VALUE" x="7.62" y="-177.8" size="1.778" layer="96"/>
@@ -27808,31 +27808,31 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <instance part="GND67" gate="1" x="10.16" y="-200.66" smashed="yes">
 <attribute name="VALUE" x="7.62" y="-203.2" size="1.778" layer="96"/>
 </instance>
-<instance part="Q2" gate="G$1" x="27.94" y="-193.04" smashed="yes">
-<attribute name="NAME" x="26.67" y="-184.023" size="1.778" layer="95"/>
-<attribute name="VALUE" x="22.86" y="-203.2" size="1.778" layer="96"/>
+<instance part="XO2" gate="G$1" x="27.94" y="-193.04" smashed="yes">
+<attribute name="NAME" x="25.654" y="-181.483" size="1.778" layer="95"/>
+<attribute name="VALUE" x="21.844" y="-184.15" size="1.778" layer="96"/>
 </instance>
 <instance part="GND27" gate="1" x="-101.6" y="119.38" smashed="yes">
 <attribute name="VALUE" x="-104.14" y="116.84" size="1.778" layer="96"/>
 </instance>
 <instance part="U3" gate="G$1" x="-162.56" y="127" smashed="yes">
-<attribute name="NAME" x="-163.947040625" y="156.1145" size="2.08755" layer="95" ratio="10" rot="SR0"/>
-<attribute name="VALUE" x="-173.199790625" y="96.0987" size="2.08405" layer="96" ratio="10" rot="SR0"/>
+<attribute name="NAME" x="-164.201040625" y="159.1625" size="2.08755" layer="95" ratio="10" rot="SR0"/>
+<attribute name="VALUE" x="-173.199790625" y="155.7887" size="2.08405" layer="96" ratio="10" rot="SR0"/>
 </instance>
-<instance part="C34" gate="G$1" x="-25.4" y="-124.46" smashed="yes">
-<attribute name="NAME" x="-23.176" y="-130.559" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-22.996" y="-132.919" size="1.778" layer="96"/>
+<instance part="C34" gate="G$1" x="-25.4" y="-127" smashed="yes">
+<attribute name="NAME" x="-23.176" y="-133.099" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-22.996" y="-135.459" size="1.778" layer="96"/>
 </instance>
 <instance part="GND65" gate="1" x="-25.4" y="-137.16" smashed="yes">
 <attribute name="VALUE" x="-27.94" y="-139.7" size="1.778" layer="96"/>
 </instance>
-<instance part="C35" gate="G$1" x="-12.7" y="-124.46" smashed="yes">
-<attribute name="NAME" x="-11.226" y="-130.459" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-11.426" y="-132.739" size="1.778" layer="96"/>
+<instance part="C35" gate="G$1" x="-12.7" y="-127" smashed="yes">
+<attribute name="NAME" x="-11.226" y="-132.999" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-11.426" y="-135.279" size="1.778" layer="96"/>
 </instance>
-<instance part="C36" gate="G$1" x="27.94" y="-124.46" smashed="yes">
-<attribute name="NAME" x="31.7" y="-127.411" size="1.778" layer="95"/>
-<attribute name="VALUE" x="31.754" y="-130.199" size="1.778" layer="96"/>
+<instance part="C36" gate="G$1" x="27.94" y="-127" smashed="yes">
+<attribute name="NAME" x="31.7" y="-129.951" size="1.778" layer="95"/>
+<attribute name="VALUE" x="31.754" y="-132.739" size="1.778" layer="96"/>
 </instance>
 <instance part="C2" gate="G$1" x="-200.66" y="160.02" smashed="yes">
 <attribute name="NAME" x="-197.786" y="160.481" size="1.778" layer="95"/>
@@ -27935,8 +27935,8 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <attribute name="VALUE" x="-205.74" y="38.1" size="1.778" layer="96" rot="R270"/>
 </instance>
 <instance part="U10" gate="A" x="251.46" y="129.54" smashed="yes">
-<attribute name="NAME" x="249.936" y="145.78" size="2.0828" layer="95" ratio="10" rot="SR0"/>
-<attribute name="VALUE" x="242.062" y="111.316" size="2.0828" layer="96" ratio="10" rot="SR0"/>
+<attribute name="NAME" x="248.666" y="149.336" size="2.0828" layer="95" ratio="10" rot="SR0"/>
+<attribute name="VALUE" x="241.554" y="145.606" size="2.0828" layer="96" ratio="10" rot="SR0"/>
 </instance>
 <instance part="R15" gate="G$1" x="160.02" y="63.5" smashed="yes">
 <attribute name="NAME" x="154.94" y="65.7606" size="1.778" layer="95"/>
@@ -28012,8 +28012,8 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <attribute name="VALUE" x="210.82" y="147.32" size="1.778" layer="96"/>
 </instance>
 <instance part="JP1" gate="A" x="297.18" y="172.72" smashed="yes">
-<attribute name="NAME" x="292.354" y="190.881" size="1.778" layer="95"/>
-<attribute name="VALUE" x="292.1" y="188.214" size="1.778" layer="96"/>
+<attribute name="NAME" x="292.354" y="191.389" size="1.778" layer="95"/>
+<attribute name="VALUE" x="290.068" y="188.976" size="1.778" layer="96"/>
 </instance>
 <instance part="LED2" gate="G$1" x="-58.42" y="-144.78" smashed="yes">
 <attribute name="NAME" x="-47.498" y="-145.034" size="1.778" layer="95" rot="R180"/>
@@ -28077,7 +28077,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 </instance>
 <instance part="U9" gate="G$1" x="91.44" y="175.26" smashed="yes">
 <attribute name="NAME" x="90.424" y="204.978" size="1.778" layer="95"/>
-<attribute name="VALUE" x="80.772" y="201.93" size="1.778" layer="96"/>
+<attribute name="VALUE" x="81.28" y="201.93" size="1.778" layer="96"/>
 </instance>
 <instance part="GND6" gate="1" x="73.66" y="175.26" smashed="yes" rot="R270">
 <attribute name="VALUE" x="71.12" y="177.8" size="1.778" layer="96" rot="R270"/>
@@ -29145,7 +29145,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <attribute name="VALUE" x="-20.567" y="179.986" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="U2" gate="G$1" x="-162.56" y="190.5" smashed="yes">
-<attribute name="NAME" x="-164.087" y="211.838659375" size="1.77853125" layer="95"/>
+<attribute name="NAME" x="-164.087" y="212.092659375" size="1.77853125" layer="95"/>
 <attribute name="VALUE" x="-172.7344" y="209.28518125" size="1.78051875" layer="96"/>
 </instance>
 <instance part="U6" gate="G$1" x="-104.14" y="132.08" smashed="yes">
@@ -29206,26 +29206,11 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <segment>
 <pinref part="GND67" gate="1" pin="GND"/>
 <pinref part="C40" gate="G$1" pin="2"/>
-<pinref part="Q2" gate="G$1" pin="GND"/>
+<pinref part="XO2" gate="G$1" pin="GND"/>
 <wire x1="17.78" y1="-198.12" x2="10.16" y2="-198.12" width="0.1524" layer="91"/>
 <pinref part="C39" gate="G$1" pin="2"/>
 <wire x1="10.16" y1="-198.12" x2="0" y2="-198.12" width="0.1524" layer="91"/>
 <junction x="10.16" y="-198.12"/>
-</segment>
-<segment>
-<pinref part="C35" gate="G$1" pin="2"/>
-<pinref part="GND32" gate="1" pin="GND"/>
-<wire x1="-12.7" y1="-134.62" x2="-12.7" y2="-132.08" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="C36" gate="G$1" pin="2"/>
-<pinref part="GND34" gate="1" pin="GND"/>
-<wire x1="27.94" y1="-134.62" x2="27.94" y2="-132.08" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND65" gate="1" pin="GND"/>
-<pinref part="C34" gate="G$1" pin="-"/>
-<wire x1="-25.4" y1="-134.62" x2="-25.4" y2="-132.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND2" gate="1" pin="GND"/>
@@ -29317,7 +29302,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 </segment>
 <segment>
 <pinref part="C38" gate="G$1" pin="2"/>
-<pinref part="Q1" gate="G$1" pin="GND"/>
+<pinref part="XO1" gate="G$1" pin="GND"/>
 <wire x1="17.78" y1="-172.72" x2="10.16" y2="-172.72" width="0.1524" layer="91"/>
 <pinref part="C37" gate="G$1" pin="2"/>
 <wire x1="10.16" y1="-172.72" x2="0" y2="-172.72" width="0.1524" layer="91"/>
@@ -29751,6 +29736,18 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <pinref part="U15" gate="A" pin="GND"/>
 <pinref part="GND39" gate="1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="GND34" gate="1" pin="GND"/>
+<pinref part="C36" gate="G$1" pin="2"/>
+</segment>
+<segment>
+<pinref part="GND32" gate="1" pin="GND"/>
+<pinref part="C35" gate="G$1" pin="2"/>
+</segment>
+<segment>
+<pinref part="GND65" gate="1" pin="GND"/>
+<pinref part="C34" gate="G$1" pin="-"/>
+</segment>
 </net>
 <net name="TDI" class="0">
 <segment>
@@ -29846,14 +29843,6 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <pinref part="VR1" gate="A1" pin="VO"/>
 <wire x1="40.64" y1="-88.9" x2="27.94" y2="-88.9" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="-88.9" x2="20.32" y2="-88.9" width="0.1524" layer="91"/>
-<wire x1="-7.62" y1="-121.92" x2="-12.7" y2="-121.92" width="0.1524" layer="91"/>
-<pinref part="C35" gate="G$1" pin="1"/>
-<pinref part="VR2" gate="G$1" pin="VIN"/>
-<pinref part="C34" gate="G$1" pin="+"/>
-<wire x1="-12.7" y1="-121.92" x2="-25.4" y2="-121.92" width="0.1524" layer="91"/>
-<junction x="-12.7" y="-121.92"/>
-<wire x1="-25.4" y1="-121.92" x2="-25.4" y2="-109.22" width="0.1524" layer="91"/>
-<junction x="-25.4" y="-121.92"/>
 <wire x1="-25.4" y1="-109.22" x2="40.64" y2="-109.22" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="-109.22" x2="40.64" y2="-88.9" width="0.1524" layer="91"/>
 <junction x="40.64" y="-88.9"/>
@@ -29861,6 +29850,16 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <junction x="27.94" y="-88.9"/>
 <pinref part="P+8" gate="1" pin="+5V"/>
 <wire x1="58.42" y1="-88.9" x2="40.64" y2="-88.9" width="0.1524" layer="91"/>
+<pinref part="VR2" gate="G$1" pin="VIN"/>
+<wire x1="-7.62" y1="-121.92" x2="-12.7" y2="-121.92" width="0.1524" layer="91"/>
+<wire x1="-12.7" y1="-121.92" x2="-25.4" y2="-121.92" width="0.1524" layer="91"/>
+<wire x1="-25.4" y1="-121.92" x2="-25.4" y2="-109.22" width="0.1524" layer="91"/>
+<pinref part="C34" gate="G$1" pin="+"/>
+<wire x1="-25.4" y1="-121.92" x2="-25.4" y2="-124.46" width="0.1524" layer="91"/>
+<junction x="-25.4" y="-121.92"/>
+<pinref part="C35" gate="G$1" pin="1"/>
+<wire x1="-12.7" y1="-121.92" x2="-12.7" y2="-124.46" width="0.1524" layer="91"/>
+<junction x="-12.7" y="-121.92"/>
 </segment>
 <segment>
 <pinref part="R41" gate="G$1" pin="1"/>
@@ -30029,7 +30028,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 </net>
 <net name="N$6" class="0">
 <segment>
-<pinref part="Q1" gate="G$1" pin="OUT"/>
+<pinref part="XO1" gate="G$1" pin="OUT"/>
 <wire x1="43.18" y1="-167.64" x2="38.1" y2="-167.64" width="0.1524" layer="91"/>
 <pinref part="R6" gate="G$1" pin="1"/>
 </segment>
@@ -30133,7 +30132,7 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <net name="N$2" class="0">
 <segment>
 <pinref part="R7" gate="G$1" pin="1"/>
-<pinref part="Q2" gate="G$1" pin="OUT"/>
+<pinref part="XO2" gate="G$1" pin="OUT"/>
 <wire x1="43.18" y1="-193.04" x2="38.1" y2="-193.04" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -32430,14 +32429,6 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 </net>
 <net name="VCCIO" class="0">
 <segment>
-<wire x1="22.86" y1="-121.92" x2="27.94" y2="-121.92" width="0.1524" layer="91"/>
-<pinref part="C36" gate="G$1" pin="1"/>
-<pinref part="VR2" gate="G$1" pin="VOUT"/>
-<pinref part="VCC2" gate="G$1" pin="VCCIO"/>
-<wire x1="58.42" y1="-121.92" x2="27.94" y2="-121.92" width="0.1524" layer="91"/>
-<junction x="27.94" y="-121.92"/>
-</segment>
-<segment>
 <pinref part="VCC1" gate="G$1" pin="VCCIO"/>
 <wire x1="58.42" y1="-55.88" x2="43.18" y2="-55.88" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="VCC@2"/>
@@ -32549,11 +32540,11 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <wire x1="10.16" y1="-187.96" x2="0" y2="-187.96" width="0.1524" layer="91"/>
 <junction x="10.16" y="-187.96"/>
 <wire x1="17.78" y1="-187.96" x2="10.16" y2="-187.96" width="0.1524" layer="91"/>
-<pinref part="Q2" gate="G$1" pin="VDD"/>
+<pinref part="XO2" gate="G$1" pin="VDD"/>
 <pinref part="VCC6" gate="G$1" pin="VCCIO"/>
 </segment>
 <segment>
-<pinref part="Q1" gate="G$1" pin="VDD"/>
+<pinref part="XO1" gate="G$1" pin="VDD"/>
 <wire x1="17.78" y1="-162.56" x2="10.16" y2="-162.56" width="0.1524" layer="91"/>
 <pinref part="C38" gate="G$1" pin="1"/>
 <wire x1="10.16" y1="-162.56" x2="0" y2="-162.56" width="0.1524" layer="91"/>
@@ -32621,6 +32612,15 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <pinref part="D3" gate="G$1" pin="A"/>
 <pinref part="VCC9" gate="G$1" pin="VCCIO"/>
 <wire x1="-83.82" y1="-200.66" x2="-88.9" y2="-200.66" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="VCC2" gate="G$1" pin="VCCIO"/>
+<pinref part="VR2" gate="G$1" pin="VOUT"/>
+<wire x1="58.42" y1="-121.92" x2="27.94" y2="-121.92" width="0.1524" layer="91"/>
+<pinref part="C36" gate="G$1" pin="1"/>
+<wire x1="27.94" y1="-121.92" x2="22.86" y2="-121.92" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="-124.46" x2="27.94" y2="-121.92" width="0.1524" layer="91"/>
+<junction x="27.94" y="-121.92"/>
 </segment>
 </net>
 <net name="PALSEL1" class="0">
