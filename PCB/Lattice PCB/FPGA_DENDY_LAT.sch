@@ -31722,6 +31722,16 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <wire x1="182.88" y1="-96.52" x2="165.1" y2="-96.52" width="0.1524" layer="91"/>
 <junction x="182.88" y="-96.52"/>
 </segment>
+<segment>
+<wire x1="203.2" y1="-134.62" x2="220.98" y2="-134.62" width="0.1524" layer="91"/>
+<label x="205.74" y="-134.62" size="1.778" layer="95"/>
+<pinref part="R25" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<wire x1="203.2" y1="-185.42" x2="220.98" y2="-185.42" width="0.1524" layer="91"/>
+<label x="205.74" y="-185.42" size="1.778" layer="95"/>
+<pinref part="R31" gate="G$1" pin="1"/>
+</segment>
 </net>
 <net name="N$9" class="0">
 <segment>
@@ -32110,18 +32120,6 @@ Source: http://www.diodes.com/datasheets/ds23001.pdf</description>
 <wire x1="231.14" y1="-185.42" x2="236.22" y2="-185.42" width="0.1524" layer="91"/>
 <wire x1="236.22" y1="-185.42" x2="236.22" y2="-177.8" width="0.1524" layer="91"/>
 <pinref part="C47" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="SND" class="0">
-<segment>
-<wire x1="203.2" y1="-185.42" x2="220.98" y2="-185.42" width="0.1524" layer="91"/>
-<label x="205.74" y="-185.42" size="1.778" layer="95"/>
-<pinref part="R31" gate="G$1" pin="1"/>
-</segment>
-<segment>
-<wire x1="203.2" y1="-134.62" x2="220.98" y2="-134.62" width="0.1524" layer="91"/>
-<label x="205.74" y="-134.62" size="1.778" layer="95"/>
-<pinref part="R25" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="VCC" class="0">
