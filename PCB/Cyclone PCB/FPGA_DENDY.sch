@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -34712,6 +34712,16 @@ the respective device descriptions.&lt;p&gt;
 <junction x="137.16" y="5.08"/>
 <junction x="137.16" y="-5.08"/>
 </segment>
+<segment>
+<wire x1="170.18" y1="-53.34" x2="187.96" y2="-53.34" width="0.1524" layer="91"/>
+<label x="172.72" y="-53.34" size="1.778" layer="95"/>
+<pinref part="R44" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<wire x1="170.18" y1="-104.14" x2="187.96" y2="-104.14" width="0.1524" layer="91"/>
+<label x="172.72" y="-104.14" size="1.778" layer="95"/>
+<pinref part="R50" gate="G$1" pin="1"/>
+</segment>
 </net>
 <net name="DMC" class="0">
 <segment>
@@ -35562,18 +35572,6 @@ the respective device descriptions.&lt;p&gt;
 <wire x1="198.12" y1="-104.14" x2="203.2" y2="-104.14" width="0.1524" layer="91"/>
 <wire x1="203.2" y1="-104.14" x2="203.2" y2="-96.52" width="0.1524" layer="91"/>
 <pinref part="C59" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="SND" class="0">
-<segment>
-<wire x1="170.18" y1="-104.14" x2="187.96" y2="-104.14" width="0.1524" layer="91"/>
-<label x="172.72" y="-104.14" size="1.778" layer="95"/>
-<pinref part="R50" gate="G$1" pin="1"/>
-</segment>
-<segment>
-<wire x1="170.18" y1="-53.34" x2="187.96" y2="-53.34" width="0.1524" layer="91"/>
-<label x="172.72" y="-53.34" size="1.778" layer="95"/>
-<pinref part="R44" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="VCC" class="0">
