@@ -5,7 +5,8 @@ Available operating modes of the NTSC, PAL, and DENDY
 
 Prototype for Cyclone II
 
-<img width="4032" height="3024" alt="IMG_5029" src="https://github.com/user-attachments/assets/cc9b302e-e2f2-4c6d-8cff-54e253ed9f43" />
+<img width="3024" height="4032" alt="IMG_5598" src="https://github.com/user-attachments/assets/6a23d34e-7322-4839-a939-9435ae530c59" />
+
 
 
 Video on YouTube
